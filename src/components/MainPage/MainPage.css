@@ -1,0 +1,13 @@
+.mainpage{
+    color: red;
+    justify-content: center;
+    width: 100%;
+    text-align: center;
+    background-color: aliceblue;
+}
+.postcontainer{
+    text-align: center;
+    align-items: center;
+    display: flex;
+    margin: auto;
+}
