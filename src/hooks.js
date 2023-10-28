@@ -1,11 +1,10 @@
-import { useCallback } from "react";
+import { useCallback, useMemo } from "react";
 import { useEffect, useState } from "react";
 
 export function usePosts(){
     const [postList, setPostList] = useState([]);
 
     useEffect(() => {
-        
         setPostList([
             {
                 "id": 1,
@@ -33,13 +32,13 @@ export function usePosts(){
     }, []);
 
     const handleAddPost = useCallback((name, desc) => {
-        setPostList(postList + [{
+        setPostList(postList.push({
             "id": 10,
             "postName": name,
             "postInfo": desc,
             "viewNum": 10,
             "likes": 10
-        }])
+        }))
     }, []);
 
     return {postList, handleAddPost}
