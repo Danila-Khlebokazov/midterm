@@ -5,6 +5,7 @@ export function usePosts(){
     const [postList, setPostList] = useState([]);
 
     useEffect(() => {
+        
         setPostList([
             {
                 "id": 1,
@@ -31,7 +32,7 @@ export function usePosts(){
         ])
     }, []);
 
-    const useAddPost = useCallback((name, desc) => {
+    const handleAddPost = useCallback((name, desc) => {
         setPostList(postList + [{
             "id": 10,
             "postName": name,
@@ -41,5 +42,5 @@ export function usePosts(){
         }])
     }, []);
 
-    return {postList, useAddPost}
+    return {postList, handleAddPost}
 }

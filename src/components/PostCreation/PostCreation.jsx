@@ -1,10 +1,11 @@
 import { useState } from "react"
 import { usePosts } from "../../hooks";
+import "./PostCreation.css"
 
 export default function CreatePost() {
     const [postName, setPostName] = useState("some name");
     const [postDescription, setDescription] = useState("");
-    const { useAddPost } = usePosts();
+    const { handleAddPost } = usePosts();
 
     const handleInput = (e, setter) => {
         setter(e.target.value)
@@ -14,7 +15,7 @@ export default function CreatePost() {
     const handleSubmit = (postName, postDescription) => {
 
         console.log("submit")
-        useAddPost({
+        handleAddPost({
             "id": 10,
             "postName": postName,
             "postInfo": postDescription,
@@ -24,10 +25,12 @@ export default function CreatePost() {
     }
 
     return <>
-        <form>
-            Post Name <input value={postName} onChange={(e) => handleInput(e, setPostName)}></input>
-            Post Description<input value={postDescription} onChange={(e) => handleInput(e, setDescription)}></input>
-            <button type="submit" onClick={handleSubmit(postName, postDescription)}>Post</button>
+        <form> 
+            <div className="form">
+            <div>Post Name <input value={postName} onChange={(e) => handleInput(e, setPostName)}></input></div>
+            <div>Post Description<input value={postDescription} onChange={(e) => handleInput(e, setDescription)}></input></div>
+            <button type="submit" onClick={(e) => handleSubmit(postName, postDescription)}>Post</button>
+            </div>
         </form>
     </>
 }
