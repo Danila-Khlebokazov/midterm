@@ -5,3 +5,9 @@
     border: 2px solid aliceblue;
     border-radius: 20px;
 }
+
+.likebutton{
+    background-color: red;
+    border: none;
+    border-radius: 20px;
+}
